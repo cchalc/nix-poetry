@@ -7,13 +7,13 @@ let pythonEnv = python38.withPackages (ps: with ps; [
   pynvim
   ipython
   python-language-server.override { pylint = null; }
+  pip
+  poetry
   ]);
 
 in
 pkgs.mkShell  {
   buildInputs = with pkgs; [
     pythonEnv
-    python38Packages.poetry
-    python38Packages.pip
   ];
 }
